@@ -104,6 +104,7 @@ d3.csv("my_dataframe_with_index.csv", d3.autoType).then(data => {
       .attr("height", y.bandwidth())
       .attr("x", 0)
       .attr("width", 0)
+      .attr("fill","#4c78a8")
       .on("mouseover", (event, d) => {
         tooltip.style("opacity", 1)
           .html(`<strong>${d.strategy}</strong><br>${metrics[currentMetricKey].label}: ${metrics[currentMetricKey].format(d.value)}`)
@@ -118,6 +119,7 @@ d3.csv("my_dataframe_with_index.csv", d3.autoType).then(data => {
       .merge(bars)
       .transition()
       .duration(600)
+      .attr("fill", "#4c78a8")
       .attr("y", d => y(d.strategy))
       .attr("height", y.bandwidth())
       .attr("x", d => Math.min(0, x(d.value)))
